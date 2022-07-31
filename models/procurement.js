@@ -31,14 +31,20 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const procurementSchema = new Schema({
-    _id: String,
     projectName: String,
+    procurementId: String,
     fiscalYear: Date,
-    description: { type: String, required: false },
-    image: { type: String, required: false },
-    available: { type: Boolean, required: true, default: true },
-    category: { type: Schema.Types.ObjectId, ref: 'Category', required: true },
-    user: { type: Schema.Types.ObjectId, ref: 'User' }
+    procurementMethod: String,
+    budget: Number,
+    middlePrice: Number,
+    originMedianPrice: String,
+    bidWinner: String,
+    bid: Number,
+    reasonBeingChosen: String,
+    effectiveDate: Date,
+    document: [String]
+  },{
+    versionKey: false // set to false then it wont create in mongodb
   });
   
   module.exports = mongoose.model('Procurement', procurementSchema);

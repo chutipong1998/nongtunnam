@@ -29,7 +29,7 @@ const config = require("./config");
 //     console.log("Mongodb is not connected");
 //   });
 
-let db;
+// let db;
 // let client;
 
 const init = () =>
@@ -46,38 +46,38 @@ const init = () =>
   //   console.log("Mongodb is not connected");
   // });
 
-  mongoose
-  .connect(config.connectionUrl, {
-    useNewUrlParser: true
+  mongoose.connect(config.connectionUrl, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
   })
   .then(() => {
     console.log("Mongodb is connected");
-    console.log(config.connectionUrl);
+    // console.log(config.connectionUrl);
   })
   .catch((e) => {
     console.log("Mongodb is not connected");
-    console.log(config.connectionUrl);
+    // console.log(config.connectionUrl);
   });
 
-const insertItem = (collectName, item) => {
-  return db.collection(collectName).insertOne({
-    fname: item.fname,
-    lname: item.lname,
-    username: item.username,
-    email: item.email,
-    avatar: item.avatar
-  });
-};
+// const insertItem = (collectName, item) => {
+//   return db.collection(collectName).insertOne({
+//     fname: item.fname,
+//     lname: item.lname,
+//     username: item.username,
+//     email: item.email,
+//     avatar: item.avatar
+//   });
+// };
 
-const getItems = (collectName) => {
+// const getItems = (collectName) => {
+// //   const collection = db.collection("items");
+//   return db.collection(collectName).find({}).toArray();
+// };
+
+// const updateQuantity = (id, quantity) => {
 //   const collection = db.collection("items");
-  return db.collection(collectName).find({}).toArray();
-};
+//   return collection.updateOne({ _id: ObjectId(id) }, { $inc: { quantity } });
+// };
 
-const updateQuantity = (id, quantity) => {
-  const collection = db.collection("items");
-  return collection.updateOne({ _id: ObjectId(id) }, { $inc: { quantity } });
-};
-
-module.exports = { init, insertItem, getItems, updateQuantity };
-// module.exports = { init };
+// module.exports = { init, insertItem, getItems, updateQuantity };
+module.exports = { init };

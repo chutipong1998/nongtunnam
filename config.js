@@ -45,5 +45,5 @@ module.exports = {
     password: PASSWORD,
     dbPort: DBPORT,
     daName: DBNAME,
-    connectionUrl: `mongodb://localhost:27017/nongtunnam`
+    connectionUrl: `mongodb://${USER}:${PASSWORD}@${HOST}:${DBPORT}/${DBNAME}?authSource=admin`
 }
