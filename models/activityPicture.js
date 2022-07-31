@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const activityPictureSchema = new Schema(
   {
     projectName: String,
-    img: [String],
+    image: [String],
     createdAt: { type: Date, default: Date.now },
   },
   {

@@ -9,6 +9,7 @@ const config = require('./config');
 const procurementRoutes = require('./routes/procurement-route');
 const complaintRoutes = require('./routes/complaint-route');
 const pressReleaseRoutes = require('./routes/press-release-route');
+const activityPictureRoutes = require('./routes/activity-picture-route');
 const userRoutes = require('./routes/user-route');
 // const { MongoClient, ObjectId } = require("mongodb");
 // const mongoose = require("mongoose");
@@ -39,6 +40,7 @@ app.use((req,res,next)=>{
 app.use('/api/nongtunnam', procurementRoutes.routes);
 app.use('/api/nongtunnam', userRoutes.routes);
 app.use('/api/nongtunnam', complaintRoutes.routes);
+app.use('/api/nongtunnam', activityPictureRoutes.routes);
 app.use('/api/nongtunnam', pressReleaseRoutes.routes);
 
 // init()
